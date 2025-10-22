@@ -1,0 +1,19 @@
+{
+  "name": "queens-auto-landing-page",
+  "version": "1.0.0",
+  "description": "Static landing page for Queens Auto",
+  "main": "index.html",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./style.css --minify"
+  },
+  "keywords": [
+    "tailwind",
+    "static",
+    "coolify"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

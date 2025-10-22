@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queens Auto Service — Instant Auto Repair Savings</title>
+    <!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W56FDLTF');</script>
+    <!-- End Google Tag Manager --><link rel="icon" href="https://queensautoserviceselgin.com/wp-content/uploads/2023/02/1485941900_wheel.png" type="image/png">
+    
+    <!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- === THIS IS THE CHANGE === -->
+    <!-- REMOVED the slow Tailwind CDN <script> tag -->
+    <!-- ADDED the link to our compiled CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- === END CHANGE === -->
+
+    <!-- Icons & Video Scripts --><script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/a6i5ic59jv.js" async type="module"></script>
+    <script src="https://fast.wistia.com/embed/u9od4mapw5.js" async type="module"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .cta-button {
+            background: linear-gradient(to right, #22d3ee, #3b82f6 60%);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(34, 197, 222, 0.3);
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        details[open] .faq-icon {
+            transform: rotate(180deg);
+        }
+        .form-step.hidden {
+            display: none;
+        }
+        .calendar-day {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .calendar-day:hover:not(.disabled):not(.selected) {
+            background-color: #334155;
+        }
+        .calendar-day.selected {
+            background-color: #22d3ee;
+            color: white;
+            font-weight: bold;
+        }
+        .calendar-day.today {
+            background-color: rgba(37, 99, 235, 0.3);
+        }
+        .calendar-day.disabled {
+            color: #475569;
+            cursor: not-allowed;
+        }
+        .time-slot.selected {
+            background-color: #22d3ee;
+            color: white;
+            border-color: #22d3ee;
+        }
+        wistia-player[media-id='a6i5ic59jv']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/a6i5ic59jv/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+        wistia-player[media-id='u9od4mapw5']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/u9od4mapw5/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+        @keyframes blob-anim {
+          0% { transform: scale(1) translate(0px, 0px); }
+          100% { transform: scale(1.2) translate(20px, -30px); }
+        }
+
+        /* Bonus Card Icon Color Change on Hover */
+        .bonus-card .icon-wrapper {
+            background-color: #1e293b; /* slate-800 */
+            transition: background-color 0.5s ease-in-out;
+        }
+        .bonus-card .icon-wrapper i {
+            color: #94a3b8; /* slate-400 */
+            transition: color 0.5s ease-in-out, transform 0.3s ease;
+            transform: scale(1);
+        }
+        .bonus-card:hover .icon-wrapper i {
+           color: #22d3ee; /* cyan-400 */
+           transform: scale(1.1);
+        }
+
+
+        /* Form Validation Styles */
+        .input-wrapper .validation-icon { display: none; }
+        .input-wrapper.is-valid .icon-valid { display: block; color: #22c55e; }
+        .input-wrapper.is-invalid .icon-invalid { display: block; color: #ef4444; }
+        .input-field.is-valid { border-color: #22c55e !important; padding-right: 2.5rem !important; }
+        .input-field.is-invalid { border-color: #ef4444 !important; padding-right: 2.5rem !important; }
+        .input-field { transition: padding-right 0.2s ease-in-out, border-color 0.2s ease-in-out; }
+        .input-field.is-valid:focus { --tw-ring-color: #22c55e; }
+        .input-field.is-invalid:focus { --tw-ring-color: #ef4444; }
+
+        /* Custom Slider Styles */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 8px; cursor: pointer; background: #1e293b; border-radius: 5px; border: 1px solid #334155; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 28px; width: 28px; border-radius: 50%; background: white; cursor: pointer; margin-top: -11px; border: 4px solid #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+        input[type=range]::-moz-range-track { width: 100%; height: 8px; cursor: pointer; background: #1e293b; border-radius: 5px; border: 1px solid #334155; }
+        input[type=range]::-moz-range-thumb { height: 20px; width: 20px; border-radius: 50%; background: white; cursor: pointer; border: 4px solid #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+        
+        /* Custom Scrollbar Styles */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background-color: #3b82f6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #60a5fa; }
+
+        /* Animated Gradient Border */
+        .animated-gradient-border {
+            background: linear-gradient(90deg, #3b82f6, #a855f7, #ec4899, #22d3ee, #3b82f6);
+            background-size: 200% 200%;
+            animation: gradient-slide 3s linear infinite;
+            border-radius: 1.1rem; /* 18px */
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-border > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-black to-slate-950 text-gray-200 selection:bg-blue-500/20 selection:text-blue-300">
+    <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W56FDLTF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) --><div class="fixed inset-0 z-0 overflow-hidden">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" style="animation: blob-anim 15s infinite alternate;"></div>
+        <div class="absolute top-40 right-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" style="animation: blob-anim 20s infinite alternate-reverse;"></div>
+        <div class="absolute -bottom-20 left-1/3 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10" style="animation: blob-anim 25s infinite alternate;"></div>
+    </div>
+    <div class="relative overflow-x-hidden">
+        <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-cyan-400 to-purple-400 w-0 z-[60]"></div>
+        <header id="site-header" class="fixed top-0 inset-x-0 z-50 backdrop-blur-md border-b bg-black/70 border-white/5 transition-transform duration-300 will-change-transform">
+          <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
+            <div class="h-full flex items-center justify-between">
+              <a href="#" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-md">
+                 <img src="https://queensautoserviceselgin.com/wp-content/uploads/2024/11/Logo-White.webp" alt="Queens Auto Services Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0f172a/ffffff?text=Logo';">
+              </a>
+              <div class="flex items-center gap-4">
+                 <div class="text-sm">
+                    <button id="lang-en" class="font-bold text-white transition-colors hover:text-cyan-400">Eng</button>
+                    <span class="text-slate-500">|</span>
+                    <button id="lang-es" class="text-slate-400 transition-colors hover:text-cyan-400">Spa</button>
+                </div>
+                <a href="#book-appointment-form" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm bg-gray-100 text-black hover:bg-gray-200 transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-cyan-400" data-translate-key="bookNowNav">Book Now</a>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <main>
+            <section id="hero-section" class="relative text-center pt-28 pb-20 sm:pt-24 sm:pb-20 px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;"><span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Save Up to $100</span> on Your Next Auto Repair</h1>
+                    <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto" data-translate-key="heroSubtitle">Book online to get an instant savings code. The more you spend, the more you save.</p>
+                    <p class="mt-4 text-base text-cyan-400 font-semibold max-w-2xl mx-auto" data-translate-key="heroOffer"></p>
+
+                    <div class="mt-12 max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-black/ ৫০ border-2 border-slate-800">
+                        <div id="wistia-en-container">
+                            <wistia-player media-id="a6i5ic59jv" aspect="1.7777777777777777"></wistia-player>
+                        </div>
+                        <div id="wistia-es-container" class="hidden">
+                            <wistia-player media-id="u9od4mapw5" aspect="1.7777777777777777"></wistia-player>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center">
+                        <a href="#book-appointment-form" class="cta-button inline-flex items-center justify-center h-14 px-10 rounded-full text-white text-lg font-bold w-full sm:w-auto" data-translate-key="heroCTA">GET MY SAVINGS NOW</a>
+                        <p class="mt-2 text-xs text-slate-400" data-translate-key="ctaUrgency">Exclusive Online Offer – Valid This Month Only</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="scale-section" class="py-8">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;"><span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Your Repair Savings</span> Scale</h2>
+                    <p class="text-lg text-slate-300 mb-10" data-translate-key="dragSlider">Move the slider to see how much YOU could save.</p>
+                    <div class="max-w-2xl mx-auto bg-slate-900/30 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-lg">
+                        <input type="range" id="cost-slider" min="100" max="1000" value="450" step="1" class="w-full">
+                        <div class="flex justify-between text-xs text-slate-400 mt-2 px-2"><span>$100</span><span>$500</span><span>$700+</span></div>
+                        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+                            <div><p class="text-sm text-slate-400" data-translate-key="repairCost">Repair Cost</p><p id="repair-cost" class="text-xl sm:text-2xl font-bold text-white">$450</p></div>
+                            <div><p class="text-sm text-slate-400" data-translate-key="youSave">You Save</p><p id="savings-amount" class="text-xl sm:text-2xl font-bold text-cyan-400">$25</p></div>
+                            <div><p class="text-sm text-slate-400" data-translate-key="finalCost">Final Cost</p><p id="final-cost" class="text-xl sm:text-2xl font-bold text-white">$425</p></div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-xs text-slate-500" data-translate-key="oilChangeNote">Oil changes count toward spend but are not discounted.</p>
+                    <a href="#disclaimer-modal" class="open-modal-btn mt-2 text-xs text-cyan-400 underline hover:text-cyan-300" data-translate-key="detailsApply">*Details Apply</a>
+                </div>
+            </section>
+
+            <section class="py-24 px-4 bg-black-950/50 border-y border-slate-800">
+                <div class="max-w-4xl mx-auto text-center">
+                  <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-white mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif;" data-translate-key="couponTitle">What Repairs Can You Use This Coupon For?</h2>
+                  <p class="text-lg mb-8 text-slate-300 max-w-3xl mx-auto" data-translate-key="couponSubtitle">This discount applies to most of the repair work we do here at Queens Auto. That means you can save big on services like:</p>
+          
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 mb-8 text-left text-slate-300 max-w-2xl mx-auto">
+                    <ul class="space-y-3" data-translate-key="couponList1" style="list-style: none; padding-left: 0;"></ul>
+                    <ul class="space-y-3" data-translate-key="couponList2" style="list-style: none; padding-left: 0;"></ul>
+                  </div>
+          
+                  <p class="text-sm text-slate-400" data-translate-key="couponExclusions"></p>
+                </div>
+              </section>
+
+            <section class="py-24">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;"><span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent" data-translate-key="bonusStackTitle">Your Repair Comes With These FREE Bonuses</span></h2>
+                    <p class="mt-4 text-lg text-slate-300 max-w-2xl mx-auto" data-translate-key="bonusStackSubtitle">We pack in the value so you can drive away with total peace of mind.</p>
+                    <div class="mt-16">
+                        <div class="flex flex-wrap items-stretch justify-center gap-8">
+                            <!-- Card 1: Tiered Savings --><div class="bonus-card flex flex-col items-center p-8 text-center bg-black-950 border border-slate-900 rounded-2xl transition-all duration-300 hover:border-cyan-500 hover:-translate-y-2 w-full sm:w-[45%] lg:w-[30%]">
+                                <div class="icon-wrapper flex items-center justify-center w-16 h-16 rounded-full"><i data-lucide="tag" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-white mt-6" data-translate-key="bonus1Title">Tiered Savings</h3>
+                                <p class="text-slate-400 mt-2" data-translate-key="bonus1Desc">$50 OFF $500+ | $100 OFF $700+</p>
+                            </div>
+                            <!-- Card 2: Multi-Point Inspection --><div class="bonus-card flex flex-col items-center p-8 text-center bg-black-950 border border-slate-800 rounded-2xl transition-all duration-300 hover:border-cyan-500 hover:-translate-y-2 w-full sm:w-[45%] lg:w-[30%]">
+                                <div class="icon-wrapper flex items-center justify-center w-16 h-16 rounded-full"><i data-lucide="search-check" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-white mt-6" data-translate-key="bonus2Title">Multi-Point Inspection</h3>
+                                <p class="text-slate-400 mt-2" data-translate-key="bonus2Desc">A $79 Value, included for free.</p>
+                            </div>
+                            <!-- Card 3: Brake & Tire Safety Check --><div class="bonus-card flex flex-col items-center p-8 text-center bg-black-950 border border-slate-800 rounded-2xl transition-all duration-300 hover:border-cyan-500 hover:-translate-y-2 w-full sm:w-[45%] lg:w-[30%]">
+                                <div class="icon-wrapper flex items-center justify-center w-16 h-16 rounded-full"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-white mt-6" data-translate-key="bonus3Title">Brake & Tire Safety Check</h3>
+                                <p class="text-slate-400 mt-2" data-translate-key="bonus3Desc">A $39 Value, on us.</p>
+                            </div>
+                            <!-- Card 4: Roadside Assistance --><div class="bonus-card flex flex-col items-center p-8 text-center bg-black-950 border border-slate-800 rounded-2xl transition-all duration-300 hover:border-cyan-500 hover:-translate-y-2 w-full sm:w-[45%] lg:w-[30%]">
+                                <div class="icon-wrapper flex items-center justify-center w-16 h-16 rounded-full"><i data-lucide="truck" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-white mt-6" data-translate-key="bonus4Title">Roadside Assistance</h3>
+                                <p class="text-slate-400 mt-2" data-translate-key="bonus4Desc">24/7 help, a $59 value.</p>
+                            </div>
+                            <!-- Card 5: Nationwide Warranty --><div class="bonus-card flex flex-col items-center p-8 text-center bg-black-950 border border-slate-800 rounded-2xl transition-all duration-300 hover:border-cyan-500 hover:-translate-y-2 w-full sm:w-[45%] lg:w-[30%]">
+                                <div class="icon-wrapper flex items-center justify-center w-16 h-16 rounded-full"><i data-lucide="award" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-white mt-6" data-translate-key="bonus5Title">Nationwide Warranty</h3>
+                                <p class="text-slate-400 mt-2" data-translate-key="bonus5Desc">A powerful 2-Year / 24,000-Mile warranty.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <p class="mt-12 text-xs text-slate-500 max-w-2xl mx-auto leading-relaxed text-center" data-translate-key="bonusStackDisclaimer">*Disclaimer: Warranty and roadside assistance are provided through ProVantage Auto Repair Network. See full terms for details.</p>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="py-24 px-4">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h2 class="text-4xl font-extrabold text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">How It Works — In 3 Easy Steps</h2>
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-slate-900/30 border border-slate-700 rounded-2xl p-8 flex flex-col items-center transition-all duration-300 hover:border-cyan-400 hover:-translate-y-2"><div class="flex items-center justify-center w-20 h-20 rounded-full bg-slate-800 border-2 border-slate-700 text-cyan-400 mb-4"><i data-lucide="calendar-plus" class="w-10 h-10"></i></div><h3 class="text-2xl font-bold text-white mt-6" data-translate-key="step1Title">Book</h3><p class="text-slate-400 mt-2" data-translate-key="step1Desc">Book online to get your savings code.</p></div>
+                        <div class="bg-slate-900/30 border border-slate-700 rounded-2xl p-8 flex flex-col items-center transition-all duration-300 hover:border-cyan-400 hover:-translate-y-2"><div class="flex items-center justify-center w-20 h-20 rounded-full bg-slate-800 border-2 border-slate-700 text-cyan-400 mb-4"><i data-lucide="car-front" class="w-10 h-10"></i></div><h3 class="text-2xl font-bold text-white mt-6" data-translate-key="step2Title">Show Up</h3><p class="text-slate-400 mt-2" data-translate-key="step2Desc">Bring your car. We’ll handle the rest.</p></div>
+                        <div class="bg-slate-900/30 border border-slate-700 rounded-2xl p-8 flex flex-col items-center transition-all duration-300 hover:border-cyan-400 hover:-translate-y-2"><div class="flex items-center justify-center w-20 h-20 rounded-full bg-slate-800 border-2 border-slate-700 text-cyan-400 mb-4"><i data-lucide="ticket-percent" class="w-10 h-10"></i></div><h3 class="text-2xl font-bold text-white mt-6" data-translate-key="step3Title">Save</h3><p class="text-slate-400 mt-2" data-translate-key="step3Desc">Show your code to apply your discount.</p></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="book-appointment-form" class="py-24 px-4">
+                <div id="form-container-wrapper" class="max-w-2xl mx-auto animated-gradient-border p-1">
+                    <div class="bg-slate-950 shadow-inner shadow-black/20 rounded-[16px] p-6 sm:p-8 md:p-12">
+                        <div id="form-content">
+                            <div class="text-center">
+                                <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;"><span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Secure Your Spot</span> – Get Started Here</h2>
+                                <p id="form-instruction" class="mt-2 text-lg text-slate-300">Step 1 of 2 — Your contact and vehicle details.</p>
+                            </div>
+                            <form id="booking-form" class="mt-8 relative min-h-[500px]">
+                                <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content"><input type="hidden" name="ga_client_id"><input type="hidden" name="gclid"><input type="hidden" name="fbc">
+                                <input type="hidden" name="fbclid">
+                                <input type="hidden" name="msclkid">
+                                <input type="hidden" name="referrer">
+                                <input type="hidden" name="event_id">
+                                <div id="form-step-1" class="form-step visible">
+                                    <div class="space-y-6">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div class="input-wrapper"><label for="first-name" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="firstName">First Name</label><div class="relative mt-1"><input type="text" id="first-name" name="first-name" required placeholder="Enter first name" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                            <div class="input-wrapper"><label for="last-name" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="lastName">Last Name</label><div class="relative mt-1"><input type="text" id="last-name" name="last-name" required placeholder="Enter last name" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                            <div class="input-wrapper"><label for="email" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="email">Email</label><div class="relative mt-1"><input type="email" id="email" name="email" required placeholder="you@example.com" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                            <div class="input-wrapper"><label for="mobile-number" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="mobileNumber">Mobile Number</label><div class="relative mt-1"><input type="tel" id="mobile-number" name="mobile-number" required placeholder="(###) ###-####" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                        </div>
+                                        <div class="pt-2"><h3 class="text-xl font-bold text-white mb-4" data-translate-key="vehicleDetails" style="font-family: 'Plus Jakarta Sans', sans-serif;">Vehicle Details</h3>
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                <div><label for="vehicle-year" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="carYear">Year</label><select id="vehicle-year" name="vehicle-year" required class="mt-1 block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 sm:text-sm"><option value="" disabled selected>Select Year</option></select></div>
+                                                <div class="input-wrapper"><label for="vehicle-make" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="carMake">Make</label><div class="relative mt-1"><input type="text" id="vehicle-make" name="vehicle-make" required placeholder="e.g., Ford" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                                <div class="input-wrapper"><label for="vehicle-model" class="block text-sm font-medium text-slate-300 mb-1" data-translate-key="carModel">Model</label><div class="relative mt-1"><input type="text" id="vehicle-model" name="vehicle-model" required placeholder="e.g., F-150" class="input-field block w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-md shadow-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 sm:text-sm"><div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><svg class="validation-icon icon-valid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><svg class="validation-icon icon-invalid h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg></div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-8 text-center">
+                                        <button type="button" id="next-btn" class="w-full cta-button inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed">Next &rarr; Pick a Time</button>
+                                        <p class="mt-2 text-xs text-slate-400" data-translate-key="ctaUrgency">Exclusive Online Offer – Valid This Month Only</p>
+                                    </div>
+                                </div>
+                                <div id="form-step-2" class="form-step hidden">
+                                     <div class="space-y-8">
+                                         <div>
+                                            <h3 class="text-xl font-bold text-white mb-4" data-translate-key="whenBringIn" style="font-family: 'Plus Jakarta Sans', sans-serif;">When can you bring it in?</h3>
+                                            <div id="calendar-container" class="bg-slate-800/50 p-6 rounded-lg shadow-lg w-full">
+                                                <div class="flex items-center justify-between mb-6"><button type="button" id="prev-month-btn" class="p-2 rounded-full hover:bg-slate-700 transition-colors"><i data-lucide="chevron-left" class="w-6 h-6 text-slate-400"></i></button><h3 id="month-year" class="text-xl font-semibold text-white"></h3><button type="button" id="next-month-btn" class="p-2 rounded-full hover:bg-slate-700 transition-colors"><i data-lucide="chevron-right" class="w-6 h-6 text-slate-400"></i></button></div>
+                                                <div class="grid grid-cols-7 gap-1 text-center" id="calendar-grid-header"></div>
+                                                <div class="grid grid-cols-7 gap-2 text-center mt-2" id="calendar-grid-body"></div>
+                                            </div>
+                                            <input type="hidden" id="date" name="date">
+                                            <div id="time-slot-container" class="mt-8 hidden"><h4 class="text-lg font-semibold text-white mb-4" data-translate-key="availableTimes">Available Times</h4><div id="time-slots" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div></div>
+                                            <input type="hidden" id="time" name="time">
+                                        </div>
+                                        <div class="mt-8 text-center">
+                                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                                <button type="button" id="back-btn" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-300 rounded-full hover:bg-slate-800 transition-colors">&larr; Back</button>
+                                                <button type="submit" id="submit-btn" class="w-full sm:w-auto cta-button inline-flex items-center justify-center px-8 py-4 text-xl font-bold text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed" data-translate-key="submitBtn">Book My Service</button>
+                                            </div>
+                                            <p class="mt-2 text-xs text-slate-400" data-translate-key="ctaUrgency">Exclusive Online Offer – Valid This Month Only</p>
+                                        </div>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-24 px-4" itemscope itemtype="http://schema.org/AutoRepair">
+                <meta itemprop="name" content="Queens Auto Service">
+                <meta itemprop="image" content="https://queensautoserviceselgin.com/wp-content/uploads/2024/11/Logo-White.webp">
+                <meta itemprop="telephone" content="+1-224-635-3000">
+                <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="hidden">
+                    <span itemprop="streetAddress">1303 Dundee Ave</span>,
+                    <span itemprop="addressLocality">Elgin</span>,
+                    <span itemprop="addressRegion">IL</span>
+                    <span itemprop="postalCode">60120</span>
+                </address>
+                <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="hidden">
+                    <meta itemprop="ratingValue" content="4.5"><meta itemprop="reviewCount" content="52">
+                </div>
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-extrabold text-center text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;" data-translate-key="testimonialsTitle">Trusted by Elgin Drivers</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-center text-slate-400" data-translate-key="testimonialsSubtitle">Rated 4.9/5 Stars by 25,000+ customers who won’t go anywhere else.</p>
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonials-container"></div>
+                    <div class="mt-12 text-center" id="load-more-container">
+                      <button id="load-more-btn" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-slate-700 text-white font-semibold rounded-full shadow-lg hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-500 focus:ring-opacity-50 transition-all duration-300" data-translate-key="loadMore">Load More Reviews</button>
+                    </div>
+                </div>
+            </section>
+             <section class="py-16 px-4">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid md:grid-cols-2 items-center gap-8 md:gap-12">
+                        <div class="order-2 md:order-1 bg-white/5 backdrop-blur-lg p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl shadow-black/20">
+                            <p class="text-sm font-bold uppercase text-cyan-400" data-translate-key="aboutUs">About Us</p>
+                            <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-white mt-2" data-translate-key="aboutTitle" style="font-family: 'Plus Jakarta Sans', sans-serif;">Driven by Passion for Cars — and Care for People.</h2>
+                            <p class="mt-4 text-slate-300" data-translate-key="aboutBody">We’re not a big chain — we’re your neighborhood shop built on trust and a passion for what we do. Every car is treated like family, and every customer drives away knowing they got real value.</p>
+                            <p class="mt-8 text-xs text-slate-400 italic" data-translate-key="aboutTagline">Real people. Real service. We fix the car — and the stress.</p>
+                        </div>
+                        <div class="order-1 md:order-2 relative">
+                            <img src="https://queensautoserviceselgin.com/wp-content/uploads/2025/09/Queens-Auto-Services-Elgin-Front-View-Shop-001.webp" alt="The exterior of Queens Auto Service shop in Elgin." class="rounded-2xl shadow-2xl w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x500/1e293b/ffffff?text=Our+Shop'">
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl">
+                                <p class="text-sm text-slate-200 font-semibold" data-translate-key="address"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block lucide lucide-map-pin mr-2 h-4 w-4 text-cyan-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>1303 Dundee Ave, 2 blocks from I-90, Elgin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-24 px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-center text-white mb-10" style="font-family: 'Plus Jakarta Sans', sans-serif;" data-translate-key="faqTitle">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <details class="bg-slate-900/50 border border-slate-800 rounded-lg p-4 transition-all duration-300 hover:border-cyan-400/50">
+                            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-slate-100 list-none">
+                                <span data-translate-key="faqQ1"></span>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </summary>
+                            <div class="mt-4 text-slate-400" data-translate-key="faqA1"></div>
+                        </details>
+                        <details class="bg-slate-900/50 border border-slate-800 rounded-lg p-4 transition-all duration-300 hover:border-cyan-400/50">
+                            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-slate-100 list-none">
+                                <span data-translate-key="faqQ2"></span>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </summary>
+                            <div class="mt-4 text-slate-400" data-translate-key="faqA2"></div>
+                        </details>
+                        <details class="bg-slate-900/50 border border-slate-800 rounded-lg p-4 transition-all duration-300 hover:border-cyan-400/50">
+                            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-slate-100 list-none">
+                                <span data-translate-key="faqQ3"></span>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </summary>
+                            <div class="mt-4 text-slate-400" data-translate-key="faqA3"></div>
+                        </details>
+                        <details class="bg-slate-900/50 border border-slate-800 rounded-lg p-4 transition-all duration-300 hover:border-cyan-400/50">
+                            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-slate-100 list-none">
+                                <span data-translate-key="faqQ4"></span>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-300"></i>
+                            </summary>
+                            <div class="mt-4 text-slate-400" data-translate-key="faqA4"></div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-24 px-4">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h2 class="text-4xl font-extrabold text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;" data-translate-key="serviceAreaTitle">Proudly Serving Elgin & Beyond</h2>
+                    <p class="mt-4 text-lg text-slate-400" data-translate-key="serviceAreaSubtitle">Your savings code is valid at our convenient Elgin location.</p>
+                    <div class="mt-12 rounded-2xl overflow-hidden border-4 border-slate-800 shadow-2xl"><img src="https://queensautoserviceselgin.com/wp-content/uploads/2025/08/Queens-Elgin-map.webp" alt="Map of Queens Auto Service service area in the greater Elgin area" class="w-full"></div>
+                    <p class="mt-6 text-sm text-slate-500" data-translate-key="serviceAreaList">Including Elgin, South Elgin, West Dundee, Sleepy Hollow, Gilberts, Streamwood, and Bartlett.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- STICKY MOBILE CTA -->
+        <div class="lg:hidden fixed bottom-6 left-0 right-0 z-40 flex justify-center pointer-events-none">
+            <a href="#book-appointment-form" id="sticky-cta-btn" class="pointer-events-auto cta-button inline-flex items-center justify-center h-14 px-8 rounded-full text-white text-lg font-bold shadow-2xl shadow-cyan-500/50 opacity-0 translate-y-full transition-all duration-500 ease-in-out" data-translate-key="heroCTA">
+                GET MY SAVINGS NOW
+            </a>
+        </div>
+        <!-- END STICKY MOBILE CTA -->
+
+        <footer class="mt-20 py-10 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-6 text-center text-sm text-slate-400">
+                <p>&copy; <span id="year"></span> Queens Auto Service. All Rights Reserved. | <a href="https://queensautoserviceselgin.com/privacy-policy/" target="_blank" class="text-slate-300 hover:text-cyan-400 transition-colors" data-translate-key="privacyPolicy">Privacy Policy</a> | <a href="https://queensautoserviceselgin.com/terms-of-use/" target="_blank" class="text-slate-300 hover:text-cyan-400 transition-colors" data-translate-key="termsOfUse">Terms of Use</a></p>
+                <p class="mt-2">1303 Dundee Ave, Elgin, IL 60120</p>
+            </div>
+        </footer>
+        
+        <!-- Disclaimer Modal & Exit Intent --><div id="disclaimer-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 p-4 transition-opacity duration-300 opacity-0" data-state="closed">
+            <div id="disclaimer-content" class="relative max-w-lg w-full bg-slate-900 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 transition-all duration-300 transform scale-95 opacity-0">
+                <button id="close-modal-btn" class="absolute top-4 right-4 p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"><i data-lucide="x" class="w-5 h-5"></i></button>
+                <h3 class="text-xl font-bold text-white mb-4" data-translate-key="modalTitle">Offer Details</h3>
+                <div class="text-sm text-slate-300 space-y-3">
+                    <p data-translate-key="modalP1"></p><p data-translate-key="modalP2"></p><p data-translate-key="modalP3"></p>
+                </div>
+            </div>
+        </div>
+        <div id="exit-popup" class="fixed inset-0 z-[101] hidden items-center justify-center bg-black/50 p-4 transition-opacity duration-300 opacity-0" data-state="closed">
+            <div id="popup-content" class="relative max-w-md w-full bg-slate-900/60 backdrop-blur-lg border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/50 text-center transition-all duration-300 scale-95 opacity-0">
+                <button id="close-popup" class="absolute top-3 right-3 text-slate-400 hover:text-white transition-colors" aria-label="Close"><i data-lucide="x" class="w-7 h-7"></i></button>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white text-center mb-4" data-translate-key="popupTitleV2">Wait! Don’t Miss This Auto Repair Package</h2>
+                <p class="text-base sm:text-lg text-slate-300 text-center mb-6" data-translate-key="popupSubtitleV2">Get Your Tiered Discount + $150 in Free Bonuses When You Book Today.</p>
+                <ul class="space-y-3 mb-6 text-slate-300 text-left max-w-md mx-auto">
+                    <li class="flex items-start gap-3"><span class="text-cyan-400 text-xl flex-shrink-0">✅</span><span data-translate-key="popupBonus1"></span></li>
+                    <li class="flex items-start gap-3"><span class="text-cyan-400 text-xl flex-shrink-0">✅</span><span data-translate-key="popupBonus2"></span></li>
+                    <li class="flex items-start gap-3"><span class="text-cyan-400 text-xl flex-shrink-0">✅</span><span data-translate-key="popupBonus3"></span></li>
+                    <li class="flex items-start gap-3"><span class="text-cyan-400 text-xl flex-shrink-0">✅</span><span data-translate-key="popupBonus4"></span></li>
+                    <li class="flex items-start gap-3"><span class="text-cyan-400 text-xl flex-shrink-0">✅</span><span data-translate-key="popupBonus5"></span></li>
+                </ul>
+                <div class="flex justify-center"><a href="#book-appointment-form" id="popup-cta" class="inline-flex items-center justify-center px-6 py-3 cta-button text-white font-bold rounded-full shadow-lg" data-translate-key="popupCTAV2">Claim My Repair Package →</a></div>
+            </div>
+        </div>
+    </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const translations = {
+                en: {
+                    bookNowNav: "Book Now",
+                    heroCTA: "GET MY SAVINGS NOW",
+                    heroSubtitle: "Book online to get an instant savings code. The more you spend, the more you save.",
+                    heroOffer: '<i data-lucide="sparkles" class="inline-block w-4 h-4 mr-1"></i> Exclusive Online Offer',
+                    detailsApply: "*Details Apply",
+                    ctaUrgency: "Exclusive Online Offer – Valid This Month Only",
+                    dragSlider: "Drag the slider to see how much you'll save.",
+                    repairCost: "Repair Cost", youSave: "You Save", finalCost: "Final Cost",
+                    oilChangeNote: "Oil changes count toward spend but are not discounted.",
+                    couponTitle: "What Repairs Can You Use This Coupon For?",
+                    couponSubtitle: "This discount applies to most of the repair work we do here at Queens Auto. That means you can save big on services like:",
+                    couponList1: `<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Brake repairs & replacements</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Suspension & steering work</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Engine diagnostics & tune-ups</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Batteries, alternators & starters</li>`,
+                    couponList2: `<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Heating & A/C repairs</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Belts, hoses & spark plugs</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Electrical diagnostics</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Fluid flushes & maintenance</li>`,
+                    couponExclusions: "<strong>Not included:</strong> Tires, oil changes, and state inspections.",
+                    bonusStackTitle: "Your Repair Comes With These FREE Bonuses",
+                    bonusStackSubtitle: "We pack in the value so you can drive away with total peace of mind.",
+                    bonus1Title: "Tiered Savings",
+                    bonus1Desc: "$15 off $100+ | $30 off $200+ | $40 off $300+ | $50 off $500+ | $100 off $700+",
+                    bonus2Title: "Multi-Point Inspection",
+                    bonus2Desc: "A $79 Value, included for free.",
+                    bonus3Title: "Brake & Tire Safety Check",
+                    bonus3Desc: "A $39 Value, on us.",
+                    bonus4Title: "Roadside Assistance",
+                    bonus4Desc: "24/7 help, a $59 value.",
+                    bonus5Title: "Nationwide Warranty",
+                    bonus5Desc: "A powerful 2-Year / 24,000-Mile warranty.",
+                    bonusStackDisclaimer: "*Disclaimer: Warranty and roadside assistance are provided through ProVantage Auto Repair Network. See full terms for details.",
+                    step1Title: "Book", step1Desc: "Book online to get your savings code.",
+                    step2Title: "Show Up", step2Desc: "Bring your car. We’ll handle the rest.",
+                    step3Title: "Save", step3Desc: "Show your code to apply your discount.",
+                    formInstruction1: "Step 1 of 2 — Your contact and vehicle details.",
+                    formInstruction2: "Step 2 of 2 — When can you bring it in?",
+                    firstName: "First Name", lastName: "Last Name", email: "Email", mobileNumber: "Mobile Number",
+                    vehicleDetails: "Vehicle Details", carYear: "Year", carMake: "Make", carModel: "Model",
+                    noPaymentRequired: "No payment required — this just saves your spot.",
+                    whenBringIn: "When can you bring it in?",
+                    availableTimes: "Available Times",
+                    submitBtn: "Book My Service",
+                    testimonialsTitle: "Trusted by Elgin Drivers",
+                    testimonialsSubtitle: "See why 25,000+ customers won’t go anywhere else.",
+                    loadMore: "Load More Reviews",
+                    aboutUs: "About Us",
+                    aboutTitle: "Driven by Passion for Cars — and Care for People.",
+                    aboutBody: "At Queens Auto, we’re not a big chain — we’re a neighborhood shop built on trust, transparency, and true passion for what we do. Every car that comes through our doors gets treated like family, and every customer drives out knowing they got real value — not gimmicks.",
+                    aboutTagline: "Real people. Real service. We fix the car — and the stress.",
+                    address: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"inline-block lucide lucide-map-pin mr-2 h-4 w-4 text-cyan-400\"><path d=\"M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>1303 Dundee Ave, 2 blocks from I-90, Elgin",
+                    serviceAreaTitle: "Proudly Serving Elgin & Beyond",
+                    serviceAreaSubtitle: "Your savings code is valid at our convenient Elgin location.",
+                    serviceAreaList: "Including Elgin, South Elgin, West Dundee, Sleepy Hollow, Gilberts, Streamwood, and Bartlett.",
+                    privacyPolicy: "Privacy Policy",
+                    termsOfUse: "Terms of Use",
+                    faqTitle: "Frequently Asked Questions",
+                    faqQ1: "How does the “Up to $100 Off” offer work?",
+                    faqA1: "It's a tiered system: Spend $100, save $15. Spend $200, save $30. Spend $300, save $40. Spend $500, save $50. Spend $700 or more, save the max of $100.",
+                    faqQ2: "What if you have a better deal on brakes or wheel alignment?",
+                    faqA2: "You’ll always get the best deal we have. If a brake or alignment special saves you more than this coupon, we’ll give you that deal instead. Discounts don’t stack, but we make sure you always come out ahead.",
+                    faqQ3: "Can I combine this with other coupons or financing offers?",
+                    faqA3: "No, this offer can’t be combined with other promotions, coupons, or special financing. We always apply whichever discount saves you the most.",
+                    faqQ4: "Does this work for online and in-store appointments?",
+                    faqA4: "Yes. Claim your savings online here, then bring your vehicle in for service. Just mention your coupon when you check in at Queens Auto Service.",
+                    modalTitle: "Offer Details",
+                    modalP1: "Up to $100 off. $15 off $100, $30 off $200, $40 off $300, $50 off $500, $100 off $700+. Max $100.",
+                    modalP2: "Excludes tires & state inspections. Oil changes count toward spend but are not discounted.",
+                    modalP3: "Cannot combine with other offers. Valid at Queens Auto Service.",
+                    popupTitleV2: "Wait! Don’t Miss This Auto Repair Package",
+                    popupSubtitleV2: "Get Your Tiered Discount + $150 in Free Bonuses When You Book Today.",
+                    popupBonus1: "Tiered Savings: $15 OFF $100+ | $30 OFF $200+ | $40 OFF $300+ | $50 OFF $500+ | $100 OFF $700+",
+                    popupBonus2: "Free Multi-Point Vehicle Inspection ($79 Value)",
+                    popupBonus3: "Free Brake & Tire Safety Check ($39 Value)",
+                    popupBonus4: "Roadside Assistance Included ($59 Value)",
+                    popupBonus5: "2-Year/24k Nationwide Warranty",
+                    popupCTAV2: "Claim My Repair Package →"
+                },
+                es: {
+                    bookNowNav: "Reservar Ahora",
+                    heroCTA: "OBTENER MIS AHORROS AHORA",
+                    heroSubtitle: "Reserva en línea para obtener un código de ahorro al instante. Cuanto más gastas, más ahorras.",
+                    heroOffer: '<i data-lucide="sparkles" class="inline-block w-4 h-4 mr-1"></i> Oferta Exclusiva en Línea',
+                    detailsApply: "*Aplican Detalles",
+                    ctaUrgency: "Oferta Exclusiva en Línea – Válida Solo Este Mes",
+                    dragSlider: "Arrastra el control deslizante para ver cuánto ahorrarás.",
+                    repairCost: "Costo de Reparación", youSave: "Ahorras", finalCost: "Costo Final",
+                    oilChangeNote: "Los cambios de aceite cuentan para el gasto pero no tienen descuento.",
+                    couponTitle: "¿En Qué Reparaciones Puedes Usar Este Cupón?",
+                    couponSubtitle: "Este descuento se aplica a la mayoría de los trabajos de reparación que hacemos en Queens Auto. Eso significa que puedes ahorrar en grande en servicios como:",
+                    couponList1: `<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Reparación y reemplazo de frenos</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Trabajos de suspensión y dirección</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Diagnóstico de motor y afinaciones</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Baterías, alternadores y arranques</li>`,
+                    couponList2: `<li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Reparaciones de calefacción y A/C</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Correas, mangueras y bujías</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Diagnóstico eléctrico</li>
+                                  <li class="flex items-start"><i data-lucide="check-circle" class="w-5 h-5 text-cyan-400 mr-3 flex-shrink-0 mt-1"></i>Lavado de fluidos y mantenimiento</li>`,
+                    couponExclusions: "<strong>No incluido:</strong> Llantas, cambios de aceite e inspecciones estatales.",
+                    bonusStackTitle: "Tu Reparación Viene Con Bonos GRATIS",
+                    bonusStackSubtitle: "Incluimos valor agregado para que puedas conducir con total tranquilidad.",
+                    bonus1Title: "Ahorros por Nivel",
+                    bonus1Desc: "$15 de DCTO en $100+ | $30 de DCTO en $200+ | $40 de DCTO en $300+ | $50 de DCTO en $500+ | $100 de DCTO en $700+",
+                    bonus2Title: "Inspección Multi-Punto",
+                    bonus2Desc: "Un valor de $79, incluido gratis.",
+                    bonus3Title: "Revisión de Frenos y Llantas",
+                    bonus3Desc: "Un valor de $39, por nuestra cuenta.",
+                    bonus4Title: "Asistencia en Carretera",
+                    bonus4Desc: "Ayuda 24/7, un valor de $59.",
+                    bonus5Title: "Garantía Nacional",
+                    bonus5Desc: "Una potente garantía de 2 años / 24,000 millas.",
+                    bonusStackDisclaimer: "*Aviso: La garantía y la asistencia en carretera son proporcionadas a través de ProVantage Auto Repair Network. Ver términos completos para más detalles.",
+                    step1Title: "Reserva", step1Desc: "Reserva en línea para obtener tu código de ahorro.",
+                    step2Title: "Visítanos", step2Desc: "Trae tu auto. Nosotros nos encargamos.",
+                    step3Title: "Ahorra", step3Desc: "Muestra tu código para aplicar tu descuento.",
+                    formInstruction1: "Paso 1 de 2 — Tus datos de contacto y del vehículo.",
+                    formInstruction2: "Paso 2 de 2 — ¿Cuándo puedes traerlo?",
+                    firstName: "Nombre", lastName: "Apellido", email: "Correo Electrónico", mobileNumber: "Número de Celular",
+                    vehicleDetails: "Detalles del Vehículo", carYear: "Año", carMake: "Marca", carModel: "Modelo",
+                    noPaymentRequired: "No se requiere pago — esto solo guarda tu lugar.",
+                    whenBringIn: "¿Cuándo puedes traerlo?",
+                    availableTimes: "Horas Disponibles",
+                    submitBtn: "Reservar Mi Servicio",
+                    testimonialsTitle: "Con la Confianza de los Conductores de Elgin",
+                    testimonialsSubtitle: "Descubre por qué más de 25,000 clientes no van a ningún otro lado.",
+                    loadMore: "Cargar Más Reseñas",
+                    aboutUs: "Sobre Nosotros",
+                    aboutTitle: "Impulsados por la Pasión por los Autos — y el Cuidado por las Personas.",
+                    aboutBody: "En Queens Auto, no somos una gran cadena — somos un taller de barrio construido sobre la confianza, la transparencia y la verdadera pasión por lo que hacemos. Cada auto es tratado como de la familia.",
+                    aboutTagline: "Gente real. Servicio real. Arreglamos el auto y el estrés.",
+                    address: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"inline-block lucide lucide-map-pin mr-2 h-4 w-4 text-cyan-400\"><path d=\"M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z\"></path><circle cx=\"12\" cy=\"10\" r=\"3\"></circle></svg>1303 Dundee Ave, a 2 cuadras de la I-90, Elgin",
+                    serviceAreaTitle: "Sirviendo con Orgullo a Elgin y sus Alrededores",
+                    serviceAreaSubtitle: "Tu código de ahorro es válido en nuestra conveniente ubicación de Elgin.",
+                    serviceAreaList: "Incluyendo Elgin, South Elgin, West Dundee, Sleepy Hollow, Gilberts, Streamwood y Bartlett.",
+                    privacyPolicy: "Política de Privacidad",
+                    termsOfUse: "Términos de Uso",
+                    faqTitle: "Preguntas Frecuentes",
+                    faqQ1: "¿Cómo funciona la oferta de “Hasta $100 de Descuento”?",
+                    faqA1: "Es un sistema por niveles: Gasta $100, ahorra $15. Gasta $200, ahorra $30. Gasta $300, ahorra $40. Gasta $500, ahorra $50. Gasta $700 o más, ahorra el máximo de $100.",
+                    faqQ2: "¿Qué pasa si tienen una mejor oferta en frenos o alineación de ruedas?",
+                    faqA2: "Siempre obtendrás la mejor oferta que tengamos. Si una oferta especial de frenos o alineación te ahorra más que este cupón, te daremos esa oferta en su lugar. Los descuentos no se acumulan, pero nos aseguramos de que siempre salgas ganando.",
+                    faqQ3: "¿Puedo combinar esto con otros cupones u ofertas de financiamiento?",
+                    faqA3: "No, esta oferta no se puede combinar con otras promociones, cupones o financiamientos especiales. Siempre aplicamos el descuento que más te ahorre.",
+                    faqQ4: "¿Funciona para citas en línea y en la tienda?",
+                    faqA4: "Sí. Reclama tus ahorros en línea aquí, y luego trae tu vehículo para el servicio. Solo menciona tu cupón cuando te registres en Queens Auto Service.",
+                    modalTitle: "Detalles de la Oferta",
+                    modalP1: "Hasta $100 de DCTO. $15 de DCTO en $100, $30 de DCTO en $200, $40 de DCTO en $300, $50 de DCTO en $500, $100 de DCTO en $700+. Máximo $100.",
+                    modalP2: "Excluye llantas e inspecciones estatales. Los cambios de aceite cuentan para el gasto pero no tienen descuento.",
+                    modalP3: "No se puede combinar con otras ofertas. Válido en Queens Auto Service.",
+                    popupTitleV2: "¡Espera! No te pierdas este paquete de reparación",
+                    popupSubtitleV2: "Obtén tu Descuento por Nivel + $150 en Bonos Gratis al Reservar Hoy.",
+                    popupBonus1: "Ahorros por Nivel: $15 de DCTO en $100+ | $30 de DCTO en $200+ | $40 de DCTO en $300+ | $50 de DCTO en $500+ | $100 de DCTO en $700+",
+                    popupBonus2: "Inspección Vehicular Gratuita ($79 Valor)",
+                    popupBonus3: "Revisión de Seguridad de Frenos y Llantas Gratuita ($39 Valor)",
+                    popupBonus4: "Asistencia en Carretera Incluida ($59 Valor)",
+                    popupBonus5: "Garantía Nacional de 2 Años/24k Millas",
+                    popupCTAV2: "Reclamar Mi Paquete →"
+                }
+            };
+            
+            const langEnBtn = document.getElementById('lang-en');
+            const langEsBtn = document.getElementById('lang-es');
+            const form = document.getElementById("booking-form");
+            const formContainer = document.getElementById('form-container-wrapper');
+            const step1 = document.getElementById("form-step-1");
+            const step2 = document.getElementById("form-step-2");
+            const formInstruction = document.getElementById("form-instruction");
+            const nextBtn = document.getElementById("next-btn");
+            const backBtn = document.getElementById("back-btn");
+            const submitBtn = document.getElementById("submit-btn");
+            let calendarDate = new Date();
+            const monthYearEl = document.getElementById("month-year");
+            const calendarGridHeader = document.getElementById("calendar-grid-header");
+            const calendarGridBody = document.getElementById("calendar-grid-body");
+            const hiddenDateInput = document.getElementById("date");
+            const hiddenTimeInput = document.getElementById("time");
+            const timeSlotContainer = document.getElementById("time-slot-container");
+            const timeSlotsEl = document.getElementById("time-slots");
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+
+            function translatePage(lang) {
+                document.documentElement.lang = lang;
+                localStorage.setItem('preferredLanguage', lang);
+                
+                const wistiaEnContainer = document.getElementById('wistia-en-container');
+                const wistiaEsContainer = document.getElementById('wistia-es-container');
+
+                if (lang === 'es') {
+                    langEsBtn.classList.add('font-bold', 'text-white');
+                    langEsBtn.classList.remove('text-slate-400');
+                    langEnBtn.classList.remove('font-bold', 'text-white');
+                    langEnBtn.classList.add('text-slate-400');
+                    if(wistiaEnContainer) wistiaEnContainer.classList.add('hidden');
+                    if(wistiaEsContainer) wistiaEsContainer.classList.remove('hidden');
+                    if (window.Wistia && Wistia.api) { const enVideo = Wistia.api('a6i5ic59jv'); if (enVideo) enVideo.pause(); }
+                } else {
+                    langEnBtn.classList.add('font-bold', 'text-white');
+                    langEnBtn.classList.remove('text-slate-400');
+                    langEsBtn.classList.remove('font-bold', 'text-white');
+                    langEsBtn.classList.add('text-slate-400');
+                    if(wistiaEnContainer) wistiaEnContainer.classList.remove('hidden');
+                    if(wistiaEsContainer) wistiaEsContainer.classList.add('hidden');
+                    if (window.Wistia && Wistia.api) { const esVideo = Wistia.api('u9od4mapw5'); if (esVideo) esVideo.pause(); }
+                }
+
+                document.querySelectorAll('[data-translate-key]').forEach(el => {
+                    const key = el.dataset.translateKey;
+                    const content = translations[lang][key] || translations.en[key];
+                    if (content) el.innerHTML = content;
+                });
+                renderCalendar();
+                 // Re-initialize icons after translation, as innerHTML is replaced
+                lucide.createIcons();
+            }
+
+            langEnBtn.addEventListener('click', () => translatePage('en'));
+            langEsBtn.addEventListener('click', () => translatePage('es'));
+            
+            lucide.createIcons();
+
+            // --- Scroll Progress & Header ---
+            const progressEl = document.getElementById('scroll-progress');
+            const headerEl = document.getElementById('site-header');
+            let lastY = window.pageYOffset;
+            window.addEventListener('scroll', () => {
+                const h = document.documentElement;
+                const st = h.scrollTop || document.body.scrollTop;
+                const sh = h.scrollHeight - h.clientHeight;
+                if (progressEl) {
+                    progressEl.style.width = (sh ? (st / sh) * 100 : 0) + '%';
+                }
+                if (headerEl) {
+                    if (st > lastY && st > 80) {
+                        headerEl.classList.add('-translate-y-full');
+                    } else {
+                        headerEl.classList.remove('-translate-y-full');
+                    }
+                }
+                lastY = st;
+            }, { passive: true });
+
+            // --- Smooth Scroll ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#disclaimer-modal') return; // Let modal handler take care of it
+                    e.preventDefault();
+                    const targetEl = document.querySelector(this.getAttribute('href'));
+                    if (targetEl) {
+                       targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // --- Savings Calculator ---
+            const slider = document.getElementById('cost-slider');
+            const repairCostEl = document.getElementById('repair-cost');
+            const savingsAmountEl = document.getElementById('savings-amount');
+            const finalCostEl = document.getElementById('final-cost');
+            const savingsTiers = [
+                { min: 700, max: Infinity, discount: 100 },
+                { min: 500, max: 699, discount: 50 },
+                { min: 300, max: 499, discount: 40 },
+                { min: 200, max: 299, discount: 30 },
+                { min: 100, max: 199, discount: 15 },
+                { min: 0, max: 99, discount: 0 }
+            ];
+            const calculateSavings = (cost) => {
+                const tier = savingsTiers.find(t => cost >= t.min && cost <= t.max);
+                return tier ? tier.discount : 0;
+            };
+            const animateValue = (el, start, end, duration) => {
+                if (!el) return;
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    el.textContent = `$${Math.floor(progress * (end - start) + start)}`;
+                    if (progress < 1) window.requestAnimationFrame(step);
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const updateSavings = (isFirstLoad = false) => {
+                if (!slider || !repairCostEl || !savingsAmountEl || !finalCostEl) return;
+                const cost = parseInt(slider.value);
+                const savings = calculateSavings(cost);
+                const final = cost - savings;
+
+                if (isFirstLoad) {
+                    repairCostEl.textContent = `$${cost}`;
+                    savingsAmountEl.textContent = `$${savings}`;
+                    finalCostEl.textContent = `$${final}`;
+                } else {
+                    animateValue(repairCostEl, parseInt(repairCostEl.textContent.replace('$', '')), cost, 300);
+                    animateValue(savingsAmountEl, parseInt(savingsAmountEl.textContent.replace('$', '')), savings, 300);
+                    animateValue(finalCostEl, parseInt(finalCostEl.textContent.replace('$', '')), final, 300);
+                }
+            };
+            if (slider) slider.addEventListener('input', () => updateSavings(false));
+            if (slider) updateSavings(true);
+
+            // --- Tracking ---
+            function getCookie(name) {
+              const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+              return match ? match[2] : '';
+            }
+            function populateAttributionFields() {
+              const params = new URLSearchParams(window.location.search);
+              
+              // 1. GA Client ID (from cookie)
+              if (document.querySelector('input[name="ga_client_id"]')) document.querySelector('input[name="ga_client_id"]').value = (() => { const c = getCookie('_ga'); return c ? c.split('.').slice(2).join('.') : ''; })();
+
+              // 2. GCLID (Param > Cookie)
+              const gclidParam = params.get('gclid');
+              const gclidField = document.querySelector('input[name="gclid"]');
+              if (gclidField) {
+                  gclidField.value = gclidParam || getCookie('_gcl_au');
+              }
+
+              // 3. FBC/FBCLID (Param > Cookie)
+              const fbclidParam = params.get('fbclid');
+              const fbcField = document.querySelector('input[name="fbc"]');
+              if (fbcField) {
+                  fbcField.value = fbclidParam || getCookie('_fbc');
+              }
+              
+              // 4. FBCLID (Param 'fbclid' only) - NEW
+              const fbclidField = document.querySelector('input[name="fbclid"]');
+              if (fbclidField && fbclidParam) {
+                  fbclidField.value = fbclidParam;
+              }
+              
+              // 5. MSCLKID (Param 'msclkid' only) - NEW
+              const msclkidParam = params.get('msclkid');
+              const msclkidField = document.querySelector('input[name="msclkid"]');
+              if (msclkidField && msclkidParam) {
+                  msclkidField.value = msclkidParam;
+              }
+
+              // 6. Referrer - NEW
+              const referrerField = document.querySelector('input[name="referrer"]');
+              if (referrerField) {
+                  referrerField.value = document.referrer;
+              }
+              
+              // 7. UTMs (from params)
+              ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(f => { if (params.get(f) && document.querySelector(`input[name="${f}"]`)) document.querySelector(`input[name="${f}"]`).value = params.get(f); });
+            }
+            populateAttributionFields();
+ 
+            // --- Form Logic & Validation ---
+            const validationRules = {
+                'first-name': (value) => value.trim().length >= 2,
+                'last-name': (value) => value.trim().length >= 2,
+                'email': (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                'mobile-number': (value) => value.replace(/\D/g, '').length >= 10,
+                'vehicle-make': (value) => value.trim().length >= 2,
+                'vehicle-model': (value) => value.trim().length >= 1,
+            };
+
+            const validateField = (inputEl) => {
+                const rule = validationRules[inputEl.id];
+                if (!rule) return;
+
+                const wrapper = inputEl.closest('.input-wrapper');
+                const isValid = rule(inputEl.value);
+
+                wrapper.classList.remove('is-valid', 'is-invalid');
+                inputEl.classList.remove('is-valid', 'is-invalid');
+
+                if (inputEl.value.trim() === '') return;
+
+                if (isValid) {
+                    wrapper.classList.add('is-valid');
+                    inputEl.classList.add('is-valid');
+                } else {
+                    wrapper.classList.add('is-invalid');
+                    inputEl.classList.add('is-invalid');
+                }
+            };
+
+            const step1Fields = ['first-name', 'last-name', 'email', 'mobile-number', 'vehicle-year', 'vehicle-make', 'vehicle-model'];
+            const step2Fields = ['date', 'time'];
+            
+            const checkStep1Completion = () => { if(nextBtn) nextBtn.disabled = !step1Fields.every(id => document.getElementById(id)?.value.trim() !== ''); };
+            const checkStep2Completion = () => { if(submitBtn) submitBtn.disabled = !step2Fields.every(id => document.getElementById(id)?.value.trim() !== ''); };
+
+            step1Fields.forEach(id => { 
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        validateField(el);
+                        checkStep1Completion();
+                    });
+                }
+            });
+
+            const smoothScrollToForm = () => {
+                const formElement = document.getElementById('form-container-wrapper');
+                const header = document.getElementById('site-header');
+                if (formElement) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    const elementPosition = formElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight - 20; // 20px buffer for spacing
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    step1.classList.add('hidden');
+                    step2.classList.remove('hidden');
+                    formInstruction.textContent = translations[localStorage.getItem('preferredLanguage') || 'en'].formInstruction2;
+                    smoothScrollToForm();
+                });
+            }
+
+            if (backBtn) {
+                backBtn.addEventListener('click', () => {
+                    step2.classList.add('hidden');
+                    step1.classList.remove('hidden');
+                    formInstruction.textContent = translations[localStorage.getItem('preferredLanguage') || 'en'].formInstruction1;
+                    smoothScrollToForm();
+                });
+            }
+
+            // --- Calendar ---
+            function renderCalendar() {
+                if (!monthYearEl || !calendarGridHeader || !calendarGridBody) return;
+                const month = calendarDate.getMonth();
+                const year = calendarDate.getFullYear();
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                
+                const lang = localStorage.getItem('preferredLanguage') || 'en';
+                const daysOfWeek = lang === 'es' ? ['D', 'L', 'M', 'M', 'J', 'V', 'S'] : ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+                monthYearEl.textContent = new Intl.DateTimeFormat(lang, { month: "long", year: "numeric" }).format(calendarDate);
+                calendarGridHeader.innerHTML = daysOfWeek.map(day => `<div class="font-semibold text-slate-400 text-xs py-2 text-center">${day}</div>`).join('');
+                calendarGridBody.innerHTML = "";
+                const firstDayOfMonth = new Date(year, month, 1).getDay();
+                for (let i = 0; i < firstDayOfMonth; i++) calendarGridBody.innerHTML += `<div></div>`;
+
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayDate = new Date(year, month, i);
+                    let classes = "calendar-day";
+                    const formattedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
+                    if (dayDate < today || dayDate.getDay() === 0) classes += " disabled";
+                    if (dayDate.getTime() === today.getTime()) classes += " today";
+                    if (hiddenDateInput.value === formattedDate) classes += " selected";
+                    calendarGridBody.innerHTML += `<div class="${classes}" data-date="${formattedDate}">${i}</div>`;
+                }
+            }
+
+            function renderTimeSlots() {
+                if (!timeSlotContainer || !timeSlotsEl) return;
+                timeSlotContainer.classList.remove("hidden");
+                timeSlotsEl.innerHTML = "";
+                const selectedDate = new Date(hiddenDateInput.value.replace(/-/g, '/'));
+                const now = new Date();
+                const dayOfWeek = selectedDate.getDay();
+                let availableTimes = (dayOfWeek === 6)
+                    ? ["08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM"]
+                    : ["08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM"];
+                
+                let slotsAdded = 0;
+                availableTimes.forEach(time => {
+                    const [hourStr, minStr, period] = time.match(/(\d+):(\d+)\s(AM|PM)/).slice(1);
+                    let hours = parseInt(hourStr);
+                    if (period === 'PM' && hours < 12) hours += 12;
+                    if (period === 'AM' && hours === 12) hours = 0;
+                    
+                    const timeSlotDate = new Date(selectedDate);
+                    timeSlotDate.setHours(hours, parseInt(minStr), 0, 0);
+
+                    if (timeSlotDate > now) {
+                        slotsAdded++;
+                        const timeSlotBtn = document.createElement("button");
+                        timeSlotBtn.type = "button";
+                        timeSlotBtn.textContent = time;
+                        timeSlotBtn.className = "time-slot p-2 border border-slate-600 rounded-md text-slate-200 transition-colors duration-200 hover:bg-slate-700";
+                        if (hiddenTimeInput.value === time) timeSlotBtn.classList.add("selected");
+                        timeSlotBtn.addEventListener("click", () => {
+                            document.querySelectorAll("#time-slots .time-slot").forEach(btn => btn.classList.remove("selected"));
+                            timeSlotBtn.classList.add("selected");
+                            hiddenTimeInput.value = time;
+                            checkStep2Completion();
+                        });
+                        timeSlotsEl.appendChild(timeSlotBtn);
+                    }
+                });
+                if (slotsAdded === 0) timeSlotsEl.innerHTML = `<p class="text-slate-400 col-span-full text-center">All appointment times for today have passed.</p>`;
+            }
+            
+            if (calendarGridBody) {
+                calendarGridBody.addEventListener("click", (e) => {
+                    const dayElement = e.target.closest(".calendar-day:not(.disabled)");
+                    if (dayElement) {
+                        document.querySelectorAll(".calendar-day").forEach(day => day.classList.remove("selected"));
+                        dayElement.classList.add("selected");
+                        hiddenDateInput.value = dayElement.dataset.date;
+                        hiddenTimeInput.value = "";
+                        checkStep2Completion();
+                        renderTimeSlots();
+                    }
+                });
+            }
+
+            document.getElementById("prev-month-btn")?.addEventListener("click", () => { calendarDate.setMonth(calendarDate.getMonth() - 1); renderCalendar(); });
+            document.getElementById("next-month-btn")?.addEventListener("click", () => { calendarDate.setMonth(calendarDate.getMonth() + 1); renderCalendar(); });
+
+            const yearSelect = document.getElementById('vehicle-year');
+            const currentYear = new Date().getFullYear() + 1;
+            for (let year = currentYear; year >= 1990; year--) {
+                yearSelect?.appendChild(new Option(year, year));
+            }
+            
+            form?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if(submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Booking...</span>`;
+                }
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // --- CORRECTED TRACKING LOGIC ---
+                // 1. Pick up the event_id created by GTM from the dataLayer
+                const uniqueEventId = window.dataLayer?.find(item => item.uniqueEventId)?.uniqueEventId || `gen_${Date.now()}`;
+                if(document.querySelector('input[name="event_id"]')) {
+                  document.querySelector('input[name="event_id"]').value = uniqueEventId;
+                  data['event_id'] = uniqueEventId; // Add it to our data object
+                }
+                
+                const formattedPhone = `+1${(data['mobile-number'] || '').replace(/\D/g, '')}`;
+
+                // 2. REMOVED the incorrect dataLayer.push()
+                //    (We send the event to the webhook, not to the browser's dataLayer)
+
+                const webhookData = {
+                    ...data,
+                    event_name: 'generate_lead', // 3. ADDED 'generate_lead' to the webhook payload
+                    phone: formattedPhone, 
+                    userLanguage: localStorage.getItem('preferredLanguage') || 'en',
+                    pageVariant: "save_100_v1_full_dark",
+                    
+                    // --- ADDED KEYS FOR THANK YOU PAGE ---
+                    'first_name': data['first-name'],
+                    'last_name': data['last-name'],
+                    'carYear': data['vehicle-year'],
+                    'carMake': data['vehicle-make'],
+                    'carModel': data['vehicle-model']
+                };
+                
+                try {
+                    const response = await fetch('https://n8n.queensautoservices.com/webhook-test/550c79ed-d8a9-4f0f-a2f7-0c82cfbb9f08', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(webhookData),
+                    });
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        if (responseData?.audioUrl) sessionStorage.setItem('customAudioUrl', responseData.audioUrl);
+                        if (responseData?.couponCode) sessionStorage.setItem('userCouponCode', responseData.couponCode); // <-- ADD THIS
+                    }
+                } catch (error) {
+                    console.error('Webhook Fetch Error:', error);
+                } finally {
+                    const thankYouUrl = new URL('https://queensautoserviceselgin.com/auto-repair/thank-you.htm');
+                    for (const key in webhookData) {
+                        if (webhookData[key]) thankYouUrl.searchParams.append(key, webhookData[key]);
+                    }
+                    window.location.href = thankYouUrl.toString();
+                }
+            });
+
+            // --- Testimonials ---
+            let allReviews = [
+                { "name": "Mark Devino", "text": "I got fast, friendly service here for a flat repair. Without any kind of appointment I got the tire fixed while I waited maybe 25 minutes. The repair was inexpensive. Great shop I will definitely be back." },
+                { "name": "Bashar Danial", "text": "Gino and the Team, Wow!!! I recently had the misfortune of breaking down on the side of the road with a bad tire, called Queens Auto Service and spoke with Gino. They were very receptive and responsive, we got the vehicle to their shop, they immediately jumped into action and replaced the bad tire with a new tire and had us back on the road, all of this in under one hour!!! I highly recommend Queens Auto Service and Gino and the Team at this shop, top-notch!! Thank you for the help and great service." },
+                { "name": "A C", "text": "HIGHLY RECOMMEND QUEENS TIRE IN ELGIN. Friendliness customer service. Prices are affordable, no extra unnecessary add ons. This will be my ONLY go to place. Much more than just tires" },
+                { "name": "Nursultan Abeuov", "text": "Good place to get your tire, balancing, Alignment and more. Always good quality. Ill do all my pickup trucks alignment here, never regret it. Nick Abeuov🇰🇿" },
+                { "name": "Kristin Kastern", "text": "Tires and axle shaft. They were amazing. I am new to the area and I am very happy 😊 with my service. They were honest and were able to fit me in on holiday weekend. The pricing was great. They even gave me really good advice about the car and tires. I am going to them in the future with all my cars. Thank you so much." },
+                { "name": "Tim Chapman", "text": "Great customer service, went in for a second opinion for tire patch, nail in tire and advised not repairable too close to outer wall of tire. Good price and wound up buying all 4 new tires speedy service, Marco was a pleasure doing business with you. Would recommend this shop to anyone. These guys get it done and professional." },
+                { "name": "Lavira Johnson", "text": "I called at the last minute to get in and have my battery replaced. I was given an exact quote, the part was in stock and I was encouraged to come in right away. When I arrived, I was greeted and checked in immediately in a very kind and professional manner by Baltazar. I was quoted 30-45 mins and it didn't feel like more than 25 and I came in about an hour before closing time. Fast and exceptional service, reasonably priced.. Will definitely patronize this business again. Pep Boys, only 5 minutes away wanted almost $300 more for the same service and wanted to keep my car overnight." },
+                { "name": "Theresa Hoge", "text": "Highly recommend! Probably one of the best shops I’ve been too. Service is professional and super nice. I had to get my brakes done. They got me in the same day, were done in a few hours and explained everything to me. I also needed to get new tires and they walked me through all the options. I recently ran over a nail and they were able to patch the hole right away. Quality of work is great and the customer service is everything! Really appreciate them!" },
+                { "name": "Vianey", "text": "Itsel was wonderful at explaining how snap finance worked. I was able to get what my car needed. They did a great job at replacing my compressor, and serpentine belt and last minute headlight bulb. This place is friendly and reliable highly recommend." },
+                { "name": "Teryl Teeter", "text": "If you miss reliable customer service, go to Queens. They listen and stand by their work." },
+                { "name": "Jeni Slagel", "text": "I had a great experience at Queens auto. They were very professional and treated me with respect no different than if I was a man. Not only did they fix my tire issue but, they looked over some work another mechanic did and confirmed it was done correctly for my piece of mind. They noticed I was missing a screw in my seat trim and just popped one in as a courtesy. I will only bring my vehicles to Queens from now on. They have a great team there. - Jeni" },
+                { "name": "Sharon Balog", "text": "I have had several tires with nails in them and they have fixed them quickly and are very professional. I recently ran over a very large bolt and it wasn't ideal to fix it considering the age and wear on my tires. They showed me how to see the amount of tread left and the year of the tires. They were able to get me new tires the next day and replaced them. They are extremely reasonable and trustworthy! I wouldn't trust anyone else with fixing my truck. Everyone is great there." },
+                { "name": "Rafa Marquez", "text": "Great service!! They never try to take your money \"finding\" another damages. I went to 6 places before here and all of them tried to add more service with fake damages. (As usual in almost all tune shops). They are very friendly and works fast. Definitely I'll be back!! If you go to replace a belt, they will replace your belt without excuses and fake damages to attempts to take more money from you." },
+                { "name": "Donald Smith", "text": "Badly needed a couple tires. Most everybody else had a long wait. I was in and out of here in 30 minutes or so. The price was fair & the service was great." },
+                { "name": "Joshua Kane", "text": "Exceptional customer service, prices, and quality of work! The boys over at queens ALWAYS take care of my vehicle repair needs in a timely fashion without being price gouged. If you are looking for an honest shop, queens is your place!" },
+                { "name": "Lita", "text": "Very good work and was available when we needed help with my niece car. Reasonable price as well. Any car issues again, we will be back🥰" },
+                { "name": "Mike", "text": "Saved me from having a rim fall off while driving on the highway. I had limited tools and thankfully they had me me back on my way within 10 minutes. I would have not made it to my job site on time without their help. The cost was less than a trip to McDonald's!!!" },
+                { "name": "Kim Banks", "text": "Very thorough when it comes to diagnosing the service needed, they don't temporarily patch things up unlike a lot of shops in Elgin, they won't break the bank either. Lex has definitely become a trusted name in my household. My best friend recommended this shop now my husband, son and parents TRUST this shop. KUDOS Queens auto shop for winning my business because nowadays that's hard for me to TRUST anyone." },
+                { "name": "Christian Abarro", "text": "Great customer service, speedy tire change, satisfied with price and outcome. Marco was a pleasure speaking with! These guys are doing gods work and will help you with your car troubles" },
+                { "name": "Hannah Kellogg", "text": "I had a nail in my tire and i had originally gone to PepBoys to get it fixed but they told me i would have to leave it until noon. It was 9am. I did not have time for that. So i tried this shop. They told me it would be a 25 minute wait, but the man came out 10 minutes later. He goes out to my truck, takes my tire off, fixes the hole and puts it back on. I was on my way so fast and the price was great. I will be going back for all my other work." },
+                { "name": "Rolando Gonzalez", "text": "Needed to stop by for a flat tire, fast service. Person at desk able to work on price of used tire needed. Would recommend" },
+                { "name": "Antonio Saenz", "text": "brought in my truck to get the exhaust pipe repaired. they were able to finish the repair within a day at a fair price. friendly service and honest!" },
+                { "name": "Terrance Boone", "text": "They were very welcoming and attentive to my needs with my vehicle. I truly appreciated that. Finding a shop that's friendly and dependable is everything. Thanks again to the guys at Queen's Auto Service" },
+                { "name": "Truth", "text": "Had them fix a tire with a nail in it. They did it FAST !, and it was really reasonably priced. And the fix has held strong for better than a year now." },
+                { "name":Row 2585: "Robert Correll", "text": "great service..took care of everything in one day..A +..been there twice more and again..great service..very prompt on getting my vehicle back to me ASAP" },
+                { "name": "Zena Cortez", "text": "i went here a couple of weeks ago. great experience. i believe the front lady name is Isabel, she is very wonderful, and she was giving me great prices. i went to about 3 other shops and there prices were horrible. i’m so glad i went here thank you!" },
+                { "name": "Lorin Mislevy", "text": "I took my car here about two weeks and I was so happy with the service I got. A woman named Isabel helped me out and was able to figure out right away what was wrong with my car and was able to fix it quickly and at a great price!" },
+                { "name": "Polly Martinez", "text": "I went for a tune up. when I say great customer service I mean it. The front lady Isabel was so wonderful, very knowledgeable and very respectful. I have recommended about 2 of my friends to go there. Thank you so much!" },
+                { "name": "Jarintzy Ramirez", "text": "The guys were very helpful and accommodating. Got me right in and quoted me a reasonable price for my brakes." },
+                { "name": "i ivasyuk", "text": "Thank You for good job!!!" },
+                { "name": "Edward Hall", "text": "Took my 70 maverick in there to get some new back tires.They hooked me up with a great set of skins and a great price.Alec and lex were great at taking care of me and getting my baby back on the road." },
+                { "name": "서휘종", "text": "I was on my way to Chicago from Minnesota. I visited here real urgent that my engine heat rise really high. Although I visited after hours they fix the problem quick. Moreover, Mechanics are really kind and fun." },
+                { "name": "Bonnie Beta", "text": "Fixed my 2008 Ford Focus ignition but had to call in a specialist to program the PCM for the ignition keys to work again. Marco was very helpful." },
+                { "name":Read-only:  "Quintin Wells", "text": "When your vehicle is broken, call Queens Auto Services Elgin to get it fixed. A special shop with special people who work to keep your cost down and your vehicle rolling. Queens Auto Services Elgin has earned my business. Let them earn yours, too." },
+                { "name": "Leonel Lomeli", "text": "Ultra clean shop and very friendly people, they gave me a really good price on a wheel alignment for my truck, I'm definitely coming back next time." },
+                { "name": "Marshall Morici", "text": "Great service manager Lex, and great technicians wilmer and joel in shop. Will be bringing my service fleet from here on out. Recommend highly!" },
+                { "name": "Humberto Caballero", "text": "Very respectful to clients, if you need anything come here. They do all type of service good prices as well" },
+                { "name": "Anna Anderson", "text": "Marco was so kind and helped me right away during a crisis on a road trip! totally recommend!" },
+                { "name": "Ed Mungai", "text": "First time I've been back since new owners took over. Service was fast and professional." },
+                { "name": "Shelby Andal", "text": "Super nice. Reasonably priced. Good job!" },
+                { "name": "Danny Zambrano", "text": "Good service and they will make time to fit you in." },
+                { "name": "Sarah Pavao", "text": "Incredible service and really helped us out in a jam." },
+                { "name": "Eduardo Vazquez", "text": "Mexican guys do amazing job!! Keep do great service." },
+                { "name": "MsB Warnock", "text": "Excellent work! These guys KNOW what their doing. And they guarantee the work they do. That really says it all..." },
+                { "name": "Danny Thomas", "text": "I only take my cars to queens Auto! The owner is a great reliable and very honest owner and mechanic!" },
+                { "name": "cleo dillon", "text": "Extremely down to earth staff. Never felt like I was getting ripped off here." },
+                { "name": "Juan Mendoza", "text": "Been coming here for years really affordable and fast service." },
+                { "name": "Ana Marie De La Cruz", "text": "Great service by new owners!! They help out alot" },
+                { "name": "Dangerlaw MC", "text": "Awesome service and a great team -I'll be back!!" },
+                { "name": "Jose De alba", "text": "Nice people! Good attitude with the workers👍" }
+            ];
+            let reviewsToShow = 6;
+            
+            function createReviewCard(review) {
+                const card = document.createElement("div");
+                card.className = "group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:shadow-2xl hover:-translate-y-1 shadow-lg transition-all flex flex-col";
+                card.innerHTML = `
+                    <div class="absolute top-4 left-4 z-0"><svg width="45" height="36" class="fill-current text-cyan-400 opacity-10" viewBox="0 0 45 36"><path d="M13.5 0C6.04 0 0 6.04 0 13.5C0 20.96 6.04 27 13.5 27H18V36H9C4.03 36 0 31.97 0 27V25.65C0 22.77 1.17 20.04 3.26 17.96C5.34 15.87 8.07 14.7 10.95 14.7H13.5C16.8 14.7 19.8 12.15 20.25 8.85C20.25 8.85 20.25 8.55 20.25 8.55C20.25 3.83 16.42 0 11.7 0H13.5ZM40.5 0C33.04 0 27 6.04 27 13.5C27 20.96 33.04 27 40.5 27H45V36H36C31.03 36 27 31.97 27 27V25.65C27 22.77 28.17 20.04 30.26 17.96C32.34 15.87 35.07 14.7 37.95 14.7H40.5C43.8 14.7 46.8 12.15 47.25 8.85C47.25 8.85 47.25 8.55 47.25 8.55C47.25 3.83 43.42 0 38.7 0H40.5Z"/></svg></div>
+                    <div class="relative z-10 flex flex-col flex-grow">
+                        <p class="text-lg text-slate-300 leading-relaxed testimonial-text flex-grow">${review.text.length > 150 ? review.text.substring(0, 150) + "..." : review.text}</p>
+                    </div>
+                    <div class="relative z-10 flex items-center mt-6 pt-6 border-t border-slate-800">
+                        <div class="w-12 h-12 rounded-full bg-slate-700 flex items-center justify-center text-white text-lg font-bold mr-4">${review.name.split(" ").map((n)=>n[0]).join("")}</div>
+                        <div><h4 class="font-semibold text-white">${review.name}</h4><div class="text-yellow-400">★★★★★</div></div>
+                    </div>`;
+                return card;
+            }
+            function renderReviews() {
+                if (testimonialsContainer) {
+                    testimonialsContainer.innerHTML = "";
+                    for (let i = 0; i < reviewsToShow && i < allReviews.length; i++) testimonialsContainer.appendChild(createReviewCard(allReviews[i]));
+                }
+            }
+            if(loadMoreBtn) {
+                loadMoreBtn.addEventListener("click", () => {
+                    reviewsToShow = allReviews.length;
+                    renderReviews();
+                    if(loadMoreBtn.parentElement) loadMoreBtn.parentElement.style.display = "none";
+                });
+            }
+            renderReviews();
+            
+            // --- Bonus Card Animation on Scroll ---
+            const bonusCards = document.querySelectorAll('.bonus-card');
+            if ("IntersectionObserver" in window) {
+                const cardObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                bonusCards.forEach(card => cardObserver.observe(card));
+            } else {
+                // Fallback for older browsers
+                bonusCards.forEach(card => card.classList.add('is-visible'));
+            }
+
+            // --- Modals & Popups ---
+            const modal = document.getElementById('disclaimer-modal');
+            const modalContent = document.getElementById('disclaimer-content');
+            const openModalBtns = document.querySelectorAll('.open-modal-btn');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            
+            const exitPopup = document.getElementById('exit-popup');
+            const popupContent = document.getElementById('popup-content');
+            const closePopupBtn = document.getElementById('close-popup');
+            const popupCta = document.getElementById('popup-cta');
+            let popupShown = false;
+
+            const showPopup = (el, content) => {
+                if(!el || !content || el.dataset.state === 'open') return;
+                el.dataset.state = 'open';
+                el.classList.remove('hidden');
+                el.classList.add('flex');
+                setTimeout(() => {
+                    el.classList.remove('opacity-0');
+                    content.classList.remove('opacity-0', 'scale-95');
+                }, 10);
+            };
+            const hidePopup = (el, content) => {
+                if(!el || !content) return;
+                el.classList.add('opacity-0');
+                content.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    el.classList.add('hidden');
+                    el.classList.remove('flex');
+                    el.dataset.state = 'closed';
+                }, 300);
+            };
+            
+            openModalBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPopup(modal, modalContent);
+            }));
+
+            closeModalBtn?.addEventListener('click', () => hidePopup(modal, modalContent));
+            modal?.addEventListener('click', (e) => {
+                if (e.target === modal) hidePopup(modal, modalContent);
+            });
+            
+            // --- Init & Footer Year ---
+            translatePage(localStorage.getItem('preferredLanguage') || 'en');
+            checkStep1Completion();
+            checkStep2Completion();
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // --- STICKY CTA OBSERVER ---
+            const stickyCta = document.getElementById('sticky-cta-btn');
+            const heroSectionToObserve = document.getElementById('hero-section'); // NEW
+            const scaleSectionToObserve = document.getElementById('scale-section'); // NEW
+            const formSectionToObserve = document.getElementById('book-appointment-form');
+            const footerToObserve = document.querySelector('footer');
+
+            if (stickyCta && heroSectionToObserve && scaleSectionToObserve && formSectionToObserve && footerToObserve) { // UPDATED
+                let heroIsVisible = false; // NEW
+                let scaleIsVisible = false; // NEW
+                let formIsVisible = false;
+                let footerIsVisible = false;
+
+                const showStickyCta = () => {
+                    // Show if hero, scale, form, AND footer are NOT visible
+                    if (!heroIsVisible && !scaleIsVisible && !formIsVisible && !footerIsVisible) { // UPDATED
+                        stickyCta.classList.remove('opacity-0', 'translate-y-full');
+                        stickyCta.classList.add('opacity-100');
+                    } else {
+                        // Hide if ANY of them are visible
+                        stickyCta.classList.add('opacity-0', 'translate-y-full');
+                        stickyCta.classList.remove('opacity-100');
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.target.id === 'hero-section') { // NEW
+                            heroIsVisible = entry.isIntersecting;
+                        }
+                        if (entry.target.id === 'scale-section') { // NEW
+                            scaleIsVisible = entry.isIntersecting;
+                        }
+                        if (entry.target.id === 'book-appointment-form') {
+                            formIsVisible = entry.isIntersecting;
+                        }
+                        if (entry.target.tagName === 'FOOTER') {
+                            footerIsVisible = entry.isIntersecting;
+                        }
+                    });
+                    showStickyCta();
+                }, {
+                    root: null,
+                    threshold: 0.1 // 10% visible
+                });
+
+                observer.observe(heroSectionToObserve); // NEW
+                observer.observe(scaleSectionToObserve); // NEW
+                observer.observe(formSectionToObserve);
+                observer.observe(footerToObserve);
+            }
+            // --- END STICKY CTA OBSERVER ---
+        });
+    </script>
+</body>
+</html>
+
